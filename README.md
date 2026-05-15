@@ -117,11 +117,6 @@ ModCenterSFS (this repo)
 Installs mods into SFS
 ```
 
-## 🌐 Website ##
-
-Project page:
-https://del-sfs.github.io/
-
 ## 👨‍💻 Credits ##
 Lead Developer: Del
 
