@@ -1,9 +1,3 @@
-# 🚀 SCAN | SFS Comprehensive Archive Network
-## Attention ##
-The SCAN is being converted from Python to C#
-
-Central Repository: ModCenterSFS  
-
 This repository powers Spaceflight Simulator mods distribution through SCAN, an automated mod manager designed to simplify installation, updates, and dependency management.
 
 ---
