@@ -1,6 +1,6 @@
 {
-  "id": "1"
-, "name": "PartEditor",
+  "id": 1,
+  "name": "PartEditor",
   "author": "Cucumber Space",
   "version": "1.0.0",
   "description": "The parts editor is capable of editing the width, height, rotation, and width of the top and bottom parts of the components.",

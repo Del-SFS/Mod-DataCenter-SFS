@@ -1,6 +1,6 @@
 {
-  "id": "2"
-, "name": "UI Tools",
+  "id": 2,
+  "name": "UI Tools",
   "author": "Cucumber Space , Neptune-Sky",
   "version": "1.1.6a",
   "description": "This mod serves as a dependency for other mods; it doesn't do anything on its own besides providing a UI to control parameters for other mods.",
