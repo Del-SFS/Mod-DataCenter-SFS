@@ -1,2 +1,2 @@
-# Welcome to the SFS Mod DataCenter
-The SFS mod datacenter was created to feed SCAN with data (SCAN is hungry <) )
+## Unfortunately, this project has been discontinued, though it remains archived. However, I will be contributing to Roshan's SFSMI/Database :3
+See you at the project :(
