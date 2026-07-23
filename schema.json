@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SCAN Mod Metadata",
+  "description": "Schema for SFS mods in the SCAN network",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique mod identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the mod"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author(s) of the mod"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic versioning (e.g., 1.0.0)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what the mod does"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["mod", "dependency"],
+      "description": "Type of addon"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "IDs of required mods"
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "IDs of incompatible mods"
+    },
+    "download": {
+      "type": "string",
+      "format": "uri",
+      "description": "Download URL"
+    },
+    "size": {
+      "type": "string",
+      "description": "File size (e.g., 19KB)"
+    }
+  },
+  "required": ["id", "name", "author", "version", "description", "type", "download"],
+  "additionalProperties": false
+}

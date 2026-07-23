@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2026-07-23",
+  "totalMods": 2,
+  "mods": [
+    {
+      "id": 1,
+      "name": "PartEditor",
+      "path": "mods/parteditor.json"
+    },
+    {
+      "id": 2,
+      "name": "UI Tools",
+      "path": "mods/uitools.json"
+    }
+  ]
+}
