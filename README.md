@@ -3,8 +3,8 @@ Central database for managing mods in Space Flight Simulator.
 
 ## Structure
 
-- `repo.json` - Index of all available mods
-- `mods/` - Individual mod metadata files
+- `repo.json` - all available mods and their data
+- `schema` - explains what your mod's mod.json should look like
 
 ## Contributing
 
