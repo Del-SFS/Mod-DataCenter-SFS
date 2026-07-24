@@ -10,8 +10,9 @@ Central database for managing mods in Space Flight Simulator.
 
 Want to add your mod? Create a pull request with:
 
-1. Update repo.json with your mod's code
-2. like this:
+1. **(Optional)** Submit an addition request :3
+2. Update repo.json with your mod's code
+3. like this:
 ```
 {
 "id": __,
@@ -26,7 +27,6 @@ Want to add your mod? Create a pull request with:
 "size": __
 },
 ```
-3. (Optional) Submit an addition request :3
 
 ## Format
 
