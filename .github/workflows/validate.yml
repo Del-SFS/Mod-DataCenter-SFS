@@ -2,99 +2,137 @@ name: Validate Mod DataCenter
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: ✅ Verify repo.json exists
+      - name: 📄 Check repo.json exists
         run: |
-          test -f repo.json || (echo "::error::repo.json not found" && exit 1)
+          if [ ! -f repo.json ]; then
+            echo "::error title=Missing File::repo.json was not found."
+            exit 1
+          fi
 
-      - name: ✅ Validate JSON syntax
+      - name: 📋 Validate JSON
         run: |
-          jq empty repo.json
+          if ! jq empty repo.json; then
+            echo "::error title=Invalid JSON::repo.json is not valid JSON."
+            exit 1
+          fi
 
-      - name: ✅ Check duplicate IDs
+      - name: 🆔 Validate IDs
         run: |
+
           ids=$(jq -r '.mods[].id' repo.json)
 
           duplicates=$(echo "$ids" | sort | uniq -d)
 
           if [ -n "$duplicates" ]; then
-            echo "::error::Duplicate IDs found:"
-            echo "$duplicates"
+
+            echo "::group::Duplicate IDs"
+
+            for id in $duplicates
+            do
+              mod=$(jq -r ".mods[] | select(.id==$id) | .name" repo.json)
+
+              echo "::error title=Duplicate ID::ID $id already exists (Mod: $mod)"
+            done
+
+            echo "::endgroup::"
+
             exit 1
           fi
 
-      - name: ✅ Check required fields
+      - name: 📦 Validate Required Fields
         run: |
-          jq -e '
-            .mods[]
-            | has("id")
-            and has("name")
-            and has("author")
-            and has("version")
-            and has("description")
-            and has("type")
-            and has("dependencies")
-            and has("conflicts")
-            and has("download")
-            and has("size")
-          ' repo.json > /dev/null
 
-      - name: ✅ Check valid type
+          fields="id name author version description type dependencies conflicts download size"
+
+          for field in $fields
+          do
+            missing=$(jq -r ".mods[] | select(has(\"$field\") | not) | .name" repo.json)
+
+            if [ -n "$missing" ]; then
+
+              echo "::error title=Missing Field::Field '$field' missing in mod '$missing'"
+
+              exit 1
+
+            fi
+          done
+
+      - name: 🧩 Validate Type
         run: |
+
           invalid=$(jq -r '
-            .mods[]
-            | select(
-                .type != "Mod"
-                and .type != "Parts"
-                and .type != "Texture"
-              )
-            | .id
+          .mods[]
+          | select(
+              .type!="Mod"
+              and .type!="Parts"
+              and .type!="Texture"
+          )
+          | "\(.name) (\(.type))"
           ' repo.json)
 
           if [ -n "$invalid" ]; then
-            echo "::error::Invalid type in:"
-            echo "$invalid"
+
+            echo "::error title=Invalid Type::$invalid"
+
             exit 1
+
           fi
 
-      - name: ✅ Check download URL
+      - name: 🌐 Validate Download URL
         run: |
+
           invalid=$(jq -r '
-            .mods[]
-            | select(.download | test("^https?://") | not)
-            | .id
+          .mods[]
+          | select(.download | test("^https?://") | not)
+          | "\(.name) -> \(.download)"
           ' repo.json)
 
           if [ -n "$invalid" ]; then
-            echo "::error::Invalid download URL:"
-            echo "$invalid"
+
+            echo "::error title=Invalid Download URL::$invalid"
+
             exit 1
+
           fi
 
-      - name: ✅ Check size
+      - name: 📏 Validate Size
         run: |
+
           invalid=$(jq -r '
-            .mods[]
-            | select(.size <= 0)
-            | .id
+          .mods[]
+          | select(.size <= 0)
+          | "\(.name) (Size: \(.size))"
           ' repo.json)
 
           if [ -n "$invalid" ]; then
-            echo "::error::Invalid size:"
-            echo "$invalid"
+
+            echo "::error title=Invalid Size::$invalid"
+
             exit 1
+
           fi
 
-      - name: 🎉 Validation successful
-        run: echo "All validations passed!"
+      - name: 🎉 Validation Passed
+        run: |
+          echo "========================================="
+          echo " SCAN Mod DataCenter Validation Passed "
+          echo "========================================="
+          echo "✔ JSON"
+          echo "✔ IDs"
+          echo "✔ Fields"
+          echo "✔ Types"
+          echo "✔ Download URLs"
+          echo "✔ Size"
+          echo "========================================="
