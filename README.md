@@ -10,8 +10,7 @@ Central database for managing mods in Space Flight Simulator.
 ## Contributing
 
 Want to add your mod? Create a pull request with:
-1. New file in `mods/yourmod.json`
-2. Update `repo.json`
+
 
 ## Format
 
