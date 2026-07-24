@@ -1,24 +1,28 @@
 {
-  "id": 1,
-  "name": "PartEditor",
-  "author": "Cucumber Space",
-  "version": "1.0.0",
-  "description": "The parts editor is capable of editing the width, height, rotation, and width of the top and bottom parts of the components.",
-  "type": "mod",
-  "dependencies": [2],
-  "conflicts": [],
-  "download": "https://release-assets.githubusercontent.com/github-production-release-asset/508282577/9fd4b236-56f0-424c-83c4-8ee8192de572?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-06-22T00%3A50%3A36Z&rscd=attachment%3B+filename%3DPartEditor.dll&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-06-21T23%3A49%3A45Z&ske=2026-06-22T00%3A50%3A36Z&sks=b&skv=2018-11-09&sig=geSvCmeHp9psDER9sJ64ANb%2BUpYu6DwnunPuZoKjM04%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MjA4NjkzNSwibmJmIjoxNzgyMDg2NjM1LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.2FXCOHt2kyOLjaRsTggtPS0FSG6rdEZ8thqW-uj9pAQ&response-content-disposition=attachment%3B%20filename%3DPartEditor.dll&response-content-type=application%2Foctet-stream",
-  "size": "19KB"
-},
-{
-  "id": 2,
-  "name": "UI Tools",
-  "author": "Cucumber Space , Neptune-Sky",
-  "version": "1.1.6",
-  "description": "This mod serves as a dependency for other mods; it doesn't do anything on its own besides providing a UI to control parameters for other mods.",
-  "type": "mod",
-  "dependencies": [],
-  "conflicts": [],
-  "download": "https://release-assets.githubusercontent.com/github-production-release-asset/564139082/2ef14aee-14a8-431f-ac4e-b1fe25b97583?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-06-22T01%3A21%3A04Z&rscd=attachment%3B+filename%3DUITools.dll&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-06-22T00%3A20%3A15Z&ske=2026-06-22T01%3A21%3A04Z&sks=b&skv=2018-11-09&sig=zm090fmDEPYr%2Bj5KFNorhOfPy3uTL2hT9RqsL9P7gg4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MjA4OTEwMCwibmJmIjoxNzgyMDg4ODAwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.NjmWDTh1DwtZVUwGxX0LXoLHcbmZ6YMQa0KENvAbPk0&response-content-disposition=attachment%3B%20filename%3DUITools.dll&response-content-type=application%2Foctet-stream",
-  "size": "44KB"
+  "mods": [
+    {
+      "id": 1,
+      "name": "PartEditor",
+      "author": "Cucumber Space",
+      "version": "1.0.0",
+      "description": "The parts editor is capable of editing the width, height, rotation, and position of the top and bottom parts of components.",
+      "type": "mod",
+      "dependencies": [2],
+      "conflicts": [],
+      "download": "https://github.com/cucumber-sp/PartEditor/releases/download/v1.0/PartEditor.dll",
+      "size": 19456
+    },
+    {
+      "id": 2,
+      "name": "UI Tools",
+      "author": "Cucumber Space, Neptune-Sky",
+      "version": "1.1.6",
+      "description": "This mod serves as a dependency for other mods; it doesn't do anything on its own besides providing a UI to control parameters for other mods.",
+      "type": "mod",
+      "dependencies": [],
+      "conflicts": [],
+      "download": "https://github.com/cucumber-sp/UITools/releases/download/v1.1.6.1/UITools.dll",
+      "size": 45056
+    }
+  ]
 }
